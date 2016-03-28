@@ -159,7 +159,7 @@ class cardlist{
                     }
 
 
-                    //If red card are entered in database start part
+                    //If get red card one person this portion will work
                     elseif ($yellow == 1 && $red == 0 )
                     {      
                         $got = $red + 1;
@@ -219,7 +219,6 @@ class cardlist{
                             }
                         }
                     }     
-                    //If red card are entered in database end part
 
                     else {
                          echo ":neckbeard: Referee: \n\n ";
