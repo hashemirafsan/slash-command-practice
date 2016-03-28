@@ -3,16 +3,21 @@
 class cardlist{
     public $error1 = "Token is not accurate please try again";
     public $error2 = "this is not right gateway please go to right way";
+    public $error3 = "Please Give Correct Command";
     
     public function yellowcard(){
     
-        //database part
+        /*
+        Database Part enter
+        */
         include("db.php");
         
-        //timer part
+        /*
+        Timer part here
+        */
         include("timer.php");
         
-        //main part start
+       
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $command = $mysqli->real_escape_string($_POST['command']);
         $text = $mysqli->real_escape_string($_POST['text']);
@@ -29,7 +34,7 @@ class cardlist{
             $list = $mysqli->real_escape_string($list);
             $res_use = "status";
             $res_use = $mysqli->real_escape_string($res_use);
-            $remover = "remove card for making coffee";
+            $remover = "remove card make coffee";
             $remover = $mysqli->real_escape_string($remover);
            
 
@@ -99,7 +104,7 @@ class cardlist{
             /*
             this portion is work for giving yellow card or red card
             */
-            else{
+            elseif($name == true && $reason == true){
 
                 $query = sprintf("SELECT name,yellow,red,reason FROM admin WHERE name = '%s'",$mysqli->real_escape_string($name));
                 $data = $mysqli->query($query);
@@ -217,9 +222,14 @@ class cardlist{
                     //If red card are entered in database end part
 
                     else {
-                    echo "$name no  he  don't got card";
+                         echo ":neckbeard: Referee: \n\n ";
+                    echo "$name No he  don't got card";
                     }
                 }
+            }
+            else{
+                 echo ":neckbeard: Referee: \n\n ";
+                echo $this -> error3;
             }
         }
         else {
@@ -234,4 +244,5 @@ class cardlist{
         
 $cardlist = new cardlist;
 $cardlist -> yellowcard(); 
+   
 ?>
