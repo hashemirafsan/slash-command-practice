@@ -1,4 +1,5 @@
-<?php 
+ 
+ <?php 
     $mysqli = new mysqli("localhost","journall_rafsan","01625903501r","journall_newer");
 
     /* check connection */
